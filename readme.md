@@ -1,14 +1,21 @@
 # data_police
 
-data_police is a small example project that demonstrates how to audit the contents of a repository using a written policy. The code crawls a folder, summarizes file metadata, and sends that structure to OpenAI's API together with a policy document. The API then returns a styled report pointing out any naming or structural issues.
+data_police demonstrates how a small script can enforce repository hygiene through a written policy. The program crawls any directory, records basic metadata, and asks OpenAI to review the structure. The response is a markdown report telling you which files violate your rules.
 
-This repo matters for anyone interested in lightweight repository hygiene checks. It shows how a short policy can be turned into an automated assistant that highlights broken naming conventions or missing documentation. Developers or data stewards can adapt the included scripts to enforce custom rules across many projects.
+The project is aimed at developers or data managers who want an automated check on folder names, documentation, or stray notebooks. By adjusting the policy you can adapt the tool for many types of codebases.
 
-The project root contains a few key pieces:
+## Repository layout
 
-- `main.py` – command-line utility that analyzes a folder and prints a markdown report.
-- `main_web.py` – Streamlit interface with a friendlier UI.
-- `policy.txt` – plain language description of the repository rules.
-- `test/` – sample files used during development and testing.
+- `main.py` – command-line tool that prints an audit report.
+- `main_web.py` – optional Streamlit interface.
+- `policy.txt` – plain language list of repository rules.
+- `test/` – minimal data used during development.
 
-To reproduce the core behaviour, install the dependencies listed in `requirements.txt` (create it with the needed packages if not present) and run `python main.py /path/to/repo`. The script will read `policy.txt`, call OpenAI, and display the generated advice. You can also launch the interface with `streamlit run main_web.py`.
+## Running the audit
+
+1. Install dependencies from `requirements.txt`.
+2. Export your OpenAI API key as `OPENAI_API_KEY`.
+3. Invoke `python main.py /path/to/repo`.
+4. For a graphical view run `streamlit run main_web.py`.
+
+Change `policy.txt` to suit your team’s naming conventions or layout guidelines. The script will flag anything that diverges and suggest fixes. Although the example policy is short, it can enforce surprisingly detailed standards and help keep repositories clean.
