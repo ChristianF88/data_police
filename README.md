@@ -14,8 +14,6 @@ This tool is designed for developers, data scientists, and research teams who wa
 - `filesystem_mcp.py`: Integration with the MCP Filesystem server for project inspection and validation.
 - `policy.txt`: Defines the rules and policies for project structure, naming, and documentation.
 - `README.md`: This documentation file.
-- `__pycache__/`: Python bytecode cache.
-- `data_police/`: Python virtual environment and dependencies for running the app.
 
 ### Recommended project structure (from policy):
 
@@ -27,7 +25,7 @@ This tool is designed for developers, data scientists, and research teams who wa
 
 ## How can someone reproduce the core results?
 
-1. Clone the repository and set up the Python environment (see `data_police/` for venv).
+1. Clone the repository and set up the Python environment.
 2. Install dependencies from `requirements.txt` or `pyproject.toml`.
 3. Run the Streamlit app: `streamlit run app.py`.
 4. Upload a zipped project and a policy (or use the default `policy.txt`).
