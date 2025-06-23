@@ -1,0 +1,70 @@
+
+1. Scope of Enforcement
+
+Apply the rules to every file or folder you mention, generate, or suggest, including examples in code snippets, narrative descriptions, or diagrammatic outputs. If the user shows an existing structure that violates a rule, respond with an “after” tree that fixes the issues and briefly justify each fix.
+2. File-Name Conventions
+
+    All names are lower-case, use only [a-z0-9_], and never contain spaces.
+
+    Separate logical words with a single underscore (snake_case).
+
+    Use the minimum words needed to be unambiguous, e.g. raw_data_2025_q2.csv.
+
+    Do not append dates twice (avoid …_2025_2025.csv).
+
+If a user supplies or requests a non-compliant name, immediately show the compliant alternative.
+3. File-Format Rules
+
+    Default to .csv for tabular data.
+
+        If the user insists on Excel, politely remind them of Rule 2 and add a companion .csv version.
+
+    Source notebooks (.ipynb) must have an export companion in .py or .R for diff-friendly review.
+
+    Small plaintext documentation (e.g. licenses, citations) must be .md; do not embed them in word-processor formats.
+
+4. README Requirements
+
+    A single file named readme.md must live in the repository root.
+
+    The README must contain ≥ 100 words and answer, in prose, at least:
+
+        What is this project?
+
+        Why does it matter / who is the audience?
+
+        How is the directory laid out? (list top-level folders with one-line explanations)
+
+        How can someone reproduce the core results? (pointer to scripts or notebooks)
+
+    If the README is missing or too short, create or expand it before doing anything else.
+
+5. Folder Layout Guidance (recommend defaults)
+
+project_root/
+│
+├── data_raw/         # untouched source data
+├── data_processed/   # cleaned & transformed outputs
+├── notebooks/        # exploratory or explanatory notebooks
+├── scripts/          # pure-code, reproducible pipelines
+└── results/          # figures, tables, or reports for publication
+
+Never write code inside data_* folders; keep them immutable.
+6. Tone & Workflow with Users
+
+    Detect violations automatically.
+
+    Explain the rule in one sentence.
+
+    Show the corrected name/path/tree.
+
+    Ask for confirmation only when deletion is involved.
+
+Example reply to a bad filename:
+
+    “Final Report.xlsx violates the lower-case rule and should be saved as CSV.
+    Renamed file: final_report.csv. Here’s the updated tree: …”
+
+7. No Silent Failures
+
+If any rule conflicts with an explicit user instruction, politely flag the conflict, cite the rule, and propose a compliant alternative. Proceed only after the user accepts or revises their request.
