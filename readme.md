@@ -19,3 +19,6 @@ The project is aimed at developers or data managers who want an automated check 
 4. For a graphical view run `streamlit run main_web.py`.
 
 Change `policy.txt` to suit your team’s naming conventions or layout guidelines. The script will flag anything that diverges and suggest fixes. Although the example policy is short, it can enforce surprisingly detailed standards and help keep repositories clean.
+
+## Attention
+**This code was mainly generated using LLMs, even the Readme file. It was tested only manually and has a few limitations. It really only is a POC.** 

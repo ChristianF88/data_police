@@ -1,18 +1,14 @@
-"""repository_steward_web.py – Streamlit UI for the Repository Steward CLI.
+"""
+This is POC script only tested with ChatGPT that uses a Streamlit Web UI.
 
-🔧 2025-06-23 • Hot‑fix 2
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-* **Crash‑guard:** Prevents fatal X11/XCB assertions on some Linux setups by
-  *never* launching the Tk folder picker when running on Linux.  You can still
-  click **Browse…** on Windows or macOS; on Linux the button is disabled and a
-  tooltip explains why.
-* **Always‑editable path box:** The “Selected folder” textbox is now *never*
-  greyed out, so you can type or paste a path even after using the picker.
-* **Minor:** the Policy file path defaults to *<repo>/policy.txt* once you fill
-  or type the repository path.
+Required:
+API-Key for ChatGPT
 
-If you were seeing `xcb` or `XInitThreads` assertions, update this file and
-restart – the app will avoid opening a GUI dialog where it cannot run safely.
+Use via:
+python main_web.py
+
+Limitations:
+The policy must be in the current working directory
 """
 from __future__ import annotations
 

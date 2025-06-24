@@ -1,10 +1,23 @@
+"""
+This is POC script only tested with ChatGPT
+
+Required:
+API-Key for ChatGPT
+
+Use via:
+python main.py path/to/folder
+
+Limitations:
+The policy must be in the current working directory
+"""
+
 import json
 import sys
 from openai import OpenAI
 from pathlib import Path
 from rich.console import Console
 from rich.markdown import Markdown
-api_key ="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"
+api_key =""
 client = OpenAI(api_key=api_key)
 
 def crawl_directory(path: Path, max_file_size=10_000):
